@@ -26,3 +26,79 @@ ExpenseTracker/
 1. User enters expense
 2. Expense gets stored
 3. User can view expenses
+public class Expense {
+    private double amount;
+    private String category;
+    private String description;
+
+    public Expense(double amount, String category, String description) {
+        this.amount = amount;
+        this.category = category;
+        this.description = description;
+    }
+
+    public double getAmount() {
+        return amount;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public String toString() {
+        return "Amount: ₹" + amount +
+               ", Category: " + category +
+               ", Description: " + description;
+    }
+}
+import java.util.ArrayList;
+
+public class ExpenseManager {
+
+    private ArrayList<Expense> expenses = new ArrayList<>();
+
+    public void addExpense(Expense expense) {
+        expenses.add(expense);
+    }
+
+    public void viewExpenses() {
+        if(expenses.isEmpty()) {
+            System.out.println("No expenses found.");
+            return;
+        }
+
+        for(Expense expense : expenses) {
+            System.out.println(expense);
+        }
+    }
+}
+public class Main {
+
+    public static void main(String[] args) {
+
+        ExpenseManager manager = new ExpenseManager();
+
+        manager.addExpense(
+            new Expense(
+                250,
+                "Food",
+                "Burger"
+            )
+        );
+
+        manager.addExpense(
+            new Expense(
+                100,
+                "Travel",
+                "Bus Ticket"
+            )
+        );
+
+        manager.viewExpenses();
+    }
+}
