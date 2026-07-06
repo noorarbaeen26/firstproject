@@ -1,28 +1,56 @@
-# firstproject / ExpenseTracker
+# Expense Tracker
 
-A tiny beginner Java CLI example showing an Expense and an ExpenseManager with an in-memory list. Includes a sample SQL schema for a users/expenses table.
+A simple Java application to track and manage expenses.
 
-How to run locally
-1. Ensure you have a JDK installed (Java 8+). Verify with:
-   ```
-   java -version
-   javac -version
-   ```
+## Project Structure
 
-2. From the project root, compile:
-   ```
-   javac ExpenseTracker/src/main/java/*.java
-   ```
-
-3. Run:
-   ```
-   java -cp ExpenseTracker/src/main/java Main
-   ```
-
-Expected output:
 ```
-Amount: 250.0, Category: Food, Description: Burger
-Amount: 100.0, Category: Travel, Description: Bus Ticket
+ExpenseTracker/
+├── src/
+│   ├── Expense.java
+│   ├── ExpenseManager.java
+│   └── Main.java
+├── database/
+│   └── schema.sql
+└── README.md
 ```
 
-Optional: Use a simple Gradle or Maven project layout if you want a build tool. The SQL schema is in database/schema.sql if you later add JDBC persistence.
+## How to Run
+
+### Prerequisites
+- Java Development Kit (JDK 8+) installed on your computer
+
+### Quick Start
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/noorarbaeen26/firstproject.git
+   cd firstproject
+   ```
+
+2. **Compile the Java files:**
+   ```bash
+   javac src/*.java
+   ```
+
+3. **Run the program:**
+   ```bash
+   java -cp src Main
+   ```
+
+### Expected Output
+```
+Amount: ₹250, Category: Food, Description: Burger
+Amount: ₹100, Category: Travel, Description: Bus Ticket
+```
+
+## Features
+- ✅ Add expenses with amount, category, and description
+- ✅ View all recorded expenses
+- ✅ Database schema for future integration
+
+## Future Enhancements
+- Database connectivity (MySQL/PostgreSQL)
+- User authentication (Login/Registration)
+- Dashboard for expense analytics
+- Category-wise expense filtering
