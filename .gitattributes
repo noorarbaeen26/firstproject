@@ -1,2 +1,19 @@
-# Auto detect text files and perform LF normalization
-* text=auto
+name: Run ExpenseTracker
+on:
+  push:
+    paths:
+      - 'ExpenseTracker/**'
+      - '.github/workflows/run-java.yml'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+      - name: Compile Java
+        run: javac ExpenseTracker/src/main/java/*.java
+      - name: Run Main
+        run: java -cp ExpenseTracker/src/main/java Main
