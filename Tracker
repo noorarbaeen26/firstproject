@@ -1,32 +1,4 @@
- CREATE TABLE users (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    username VARCHAR(50),
-    password VARCHAR(100)
-);
-CREATE TABLE expenses (
-    id INT PRIMARY KEY AUTO_INCREMENT,
-    user_id INT,
-    amount DOUBLE,
-    category VARCHAR(50),
-    description VARCHAR(255),
-    expense_date DATE
-);
-ExpenseTracker/
-│
-├── src/
-│   ├── Main.java
-│   ├── Login.java
-│   ├── Dashboard.java
-│   ├── ExpenseManager.java
-│
-├── database/
-│   └── schema.sql
-│
-└── README.md
-1. User enters expense
-2. Expense gets stored
-3. User can view expenses
-public class Expense {
+ public class Expense {
     private double amount;
     private String category;
     private String description;
@@ -37,21 +9,13 @@ public class Expense {
         this.description = description;
     }
 
-    public double getAmount() {
-        return amount;
-    }
-
-    public String getCategory() {
-        return category;
-    }
-
-    public String getDescription() {
-        return description;
-    }
+    public double getAmount() { return amount; }
+    public String getCategory() { return category; }
+    public String getDescription() { return description; }
 
     @Override
     public String toString() {
-        return "Amount: ₹" + amount +
+        return "Amount: " + amount +
                ", Category: " + category +
                ", Description: " + description;
     }
@@ -67,13 +31,12 @@ public class ExpenseManager {
     }
 
     public void viewExpenses() {
-        if(expenses.isEmpty()) {
+        if (expenses.isEmpty()) {
             System.out.println("No expenses found.");
             return;
         }
-
-        for(Expense expense : expenses) {
-            System.out.println(expense);
+        for (Expense e : expenses) {
+            System.out.println(e);
         }
     }
 }
@@ -83,22 +46,23 @@ public class Main {
 
         ExpenseManager manager = new ExpenseManager();
 
-        manager.addExpense(
-            new Expense(
-                250,
-                "Food",
-                "Burger"
-            )
-        );
-
-        manager.addExpense(
-            new Expense(
-                100,
-                "Travel",
-                "Bus Ticket"
-            )
-        );
+        manager.addExpense(new Expense(250, "Food", "Burger"));
+        manager.addExpense(new Expense(100, "Travel", "Bus Ticket"));
 
         manager.viewExpenses();
     }
 }
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50),
+    password VARCHAR(100)
+);
+
+CREATE TABLE expenses (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    user_id INT,
+    amount DOUBLE,
+    category VARCHAR(50),
+    description VARCHAR(255),
+    expense_date DATE
+);
