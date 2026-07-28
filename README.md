@@ -24,8 +24,8 @@ ExpenseTracker/
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/noorarbaeen26/firstproject.git
-   cd firstproject
+   git clone https://github.com/noorarbaeen26/Expense-Tracker.git
+   cd Expense-Tracker
    ```
 
 2. **Compile the Java files:**
